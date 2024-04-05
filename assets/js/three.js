@@ -95,8 +95,9 @@ gltfloader.load(urlThinker.href,
         const ts = (1.2 + (sizes.aspect / 0.45)) >= 3 ? 3 : (1.2 + (sizes.aspect / 0.45))
         model.scale.set(ts, ts, ts)
         model.rotation.y = Math.PI * .7
-        if (sizes.aspect < 1) model.position.set(-((window.innerWidth / 2) / 200), ts > 2.6 ? -11.17 : -11.8 + sizes.aspect, 0)
+        if (sizes.aspect < 1) model.position.set(-((window.innerWidth / 2) / 200), -12.7 + ((window.innerWidth - 300) / 4000), 0)
         else model.position.set(100, -11.2, 0)
+        console.log(thinker.position.y)
     }
 )
 
@@ -106,8 +107,8 @@ gltfloader.load(urlLacoon.href,
         const model = object.scene
         lacoon = model
         scene.add(model)
-        model.scale.set(0.15, 0.15, 0.15)
-        model.position.set(0, -19.3, 0)
+        model.scale.set(-0.15, 0.15, 0.15)
+        model.position.set(0, -20, 0)
     }
 )
 
@@ -249,7 +250,7 @@ function changeModel() {
         angel.position.x = 100
     }
     thinker.scale.set(ts, ts, ts)
-    thinker.position.y = ts > 2.6 ? -11.17 : -11.8 + sizes.aspect
+    thinker.position.y = -12.7 + ((window.innerWidth - 300) / 4000)
 }
 
 window.scrollTo({ top: 0, behavior: 'smooth' })
