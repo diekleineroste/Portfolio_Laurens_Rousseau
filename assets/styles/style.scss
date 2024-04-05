@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300;0,5..1200,400;0,5..1200,500;0,5..1200,600;0,5..1200,700;0,5..1200,800;0,5..1200,900;1,5..1200,300;1,5..1200,400;1,5..1200,500;1,5..1200,600;1,5..1200,700;1,5..1200,800;1,5..1200,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100;0,8..144,200;0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;0,8..144,800;0,8..144,900;1,8..144,100;1,8..144,200;1,8..144,300;1,8..144,400;1,8..144,500;1,8..144,600;1,8..144,700;1,8..144,800;1,8..144,900&display=swap');
+
+:root {
+  // --white: #fff;
+  --white: #F5F1ED;
+  --gray: #909090;
+  --offgray: #818181;
+  --black: #1c1c1c;
+  --offblack: #2c2c2c;
+  --pink: #ff8ff8;
+  --primary: var(--white);
+  --offprimary: var(--offwhite);
+  --secondary: var(--black);
+  --offsecondary: var(--offblack);
+  --accent: var(--pink);
+  --background: var(--offprimary);
+  --text: var(--black);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: var(--black);
+    --offprimary: var(--offblack);
+    --secondary: var(--white);
+    --offsecondary: var(--offwhite);
+    --text: var(--white);
+  }
+}
+
+* {
+  font-family: 'Playfair', serif;
+  font-family: 'Roboto Serif', serif;
+  color: var(--text);
+}
+
+/* LOGO STYLE */
+.logo {
+  margin: 1rem;
+  position: relative;
+  width: fit-content;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 2rem;
+
+  &:before {
+    content: "ROUSSEAU";
+    position: absolute;
+    clip: rect(auto auto 18px auto);
+  }
+
+  &:after {
+    content: "ROUSSEAU";
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    clip: rect(18px auto auto auto);
+    z-index: -1;
+  }
+
+  span {
+    visibility: hidden;
+
+    &:after {
+      content: "";
+      visibility: visible;
+      position: absolute;
+      display: block;
+      top: 47.5%;
+      width: 103%;
+      height: 2.2px;
+      background-color: var(--pink);
+    }
+  }
+}
+
+* {
+  font-family: 'Playfair', serif;
+  font-family: 'Roboto Serif', serif;
+  color: var(--white);
+  // transition: all 1s ease-in-out;
+}
+
+body {
+  margin: 0;
+  background-color: var(--black);
+  overflow-x: hidden;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .quote {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 100%;
+      max-width: 28rem;
+      margin: .5rem 0;
+      transform: translateX(-50%);
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 400;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      height: 100vh;
+      width: 100%;
+
+      >div {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        height: 50%;
+
+        .logo {
+          // scale: 5;
+          transform: translateY(100%);
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: end;
+        height: 45%;
+        width: 90%;
+        margin: 0;
+        padding: 0 5% 5%;
+        list-style-type: none;
+
+        li {
+          font-size: 1.4rem;
+          text-transform: uppercase;
+
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    a {
+      text-decoration-color: #ff8ff8;
+    }
+
+    section {
+      height: calc(100vh - 2em);
+      padding: 1em;
+
+      h2 {
+        margin: .5em 0 0;
+        color: var(--white);
+        text-transform: uppercase;
+        text-align: end;
+        font-weight: 500;
+        font-size: 3em;
+      }
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: end;
+
+      .contact {
+        width: 45%;
+
+        h3 {
+          margin: 0;
+          text-transform: uppercase;
+          font-weight: 500;
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -9999;
+  overflow: hidden;
+}
