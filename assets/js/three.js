@@ -92,10 +92,10 @@ gltfloader.load(urlThinker.href,
         const model = object.scene
         thinker = model
         scene.add(model)
-        const ts = (1.2 + (sizes.aspect / 0.45)) >= 3 ? 3 : (1.2 + (sizes.aspect / 0.45))
+        const ts = (1.2 + (window.innerWidth / 350)) >= 3 ? 3 : (1.2 + (window.innerWidth / 350))
         model.scale.set(ts, ts, ts)
         model.rotation.y = Math.PI * .7
-        if (sizes.aspect < 1) model.position.set(-((window.innerWidth / 2) / 200), -12.7 + ((window.innerWidth - 300) / 4000), 0)
+        if (sizes.aspect < 1) model.position.set(-((window.innerWidth / 2) / 200), -12.6 + ((window.innerWidth - 300) / 4000), 0)
         else model.position.set(100, -11.2, 0)
         console.log(thinker.position.y)
     }
@@ -250,7 +250,7 @@ function changeModel() {
         angel.position.x = 100
     }
     thinker.scale.set(ts, ts, ts)
-    thinker.position.y = -12.7 + ((window.innerWidth - 300) / 4000)
+    thinker.position.y = -12.6 + ((window.innerWidth - 300) / 4000)
 }
 
 window.scrollTo({ top: 0, behavior: 'smooth' })
