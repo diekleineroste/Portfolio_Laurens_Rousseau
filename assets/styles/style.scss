@@ -103,6 +103,11 @@ body {
       }
     }
 
+    .info-small {
+      position: absolute;
+      left: -900px;
+    }
+
     nav {
       display: flex;
       flex-direction: column;
@@ -200,26 +205,6 @@ body {
         li {
           font-size: 1.75em;
         }
-
-        li:nth-child(1) {
-          margin-left: random(6) + em;
-        }
-
-        li:nth-child(2) {
-          margin-left: random(6) + em;
-        }
-
-        li:nth-child(3) {
-          margin-left: random(6) + em;
-        }
-
-        li:nth-child(4) {
-          margin-left: random(6) + em;
-        }
-
-        li:nth-child(5) {
-          margin-left: random(6) + em;
-        }
       }
     }
   }
@@ -239,12 +224,14 @@ canvas {
   body {
     padding: 0 5em;
     header {
+      position: relative;
       height: calc(100dvh - 1rem);
       width: calc(100% - 4rem);
       padding: .5rem 2rem;
 
       .info-small {
         position: absolute;
+        left: 2rem;
         bottom: 10em;
         
         p {
