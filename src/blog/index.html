@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&nbsp;Portfolio Rousseau</title>
+    <link rel="stylesheet" href="../assets/styles/style.scss" />
+  </head>
+
+  <body>
+    <header>
+      <div class="quote">
+        <p>the website should not only showcase</p>
+        <p>the designers work but also reflect</p>
+        <p>their unique style and personality</p>
+      </div>
+      <div class="info-small">
+        <p>laurens</p>
+        <p>rousseau</p>
+        <p>frontend</p>
+        <p>developer</p>
+        <p>design</p>
+      </div>
+      <nav>
+        <div>
+          <a href="../"
+            ><h1 class="logo" aria-label="logos"><span>ROUSSEAU</span></h1></a
+          >
+        </div>
+        <ul>
+          <li>
+            <a href="../">home</a>
+          </li>
+          <li>
+            <a href="./feed.xml">rss</a>
+          </li>
+          <li>
+            <a href="#blog">blog</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="blog" id="blog">
+        <h2>Blog</h2>
+        <ul>
+          <li>
+            <h3>April 2nd: Starting My 3D Website Journey</h3>
+            <p>
+              Hey everyone! Today, I decided to start a new project. I've always
+              been fascinated by 3D graphics and web development, so I thought,
+              why not combine the two? I began working on an interactive 3D
+              scene using Three.js and SCSS. I spent the day setting up the
+              basic structure and importing the necessary libraries and fonts.
+            </p>
+          </li>
+          <li>
+            <h3>April 3rd: Diving Deeper into Three.js</h3>
+            <p>
+              Today was all about diving deeper into Three.js. I set up a canvas
+              and started working on adding some 3D models to my scene. I
+              encountered a few challenges with positioning the models correctly
+              and adjusting the scale, but I managed to make some progress.
+            </p>
+          </li>
+          <li>
+            <h3>April 5th: First Batch of 3D Models</h3>
+            <p>
+              I made some good progress today! I added the first batch of 3D
+              models to my scene, including a Michelangelo statue and a woman
+              model. I used the GLTFLoader in Three.js to import the models and
+              spent some time adjusting their positions and scales.
+            </p>
+          </li>
+          <li>
+            <h3>April 8th: Fixing Positioning Issues</h3>
+            <p>
+              I realized that the positioning of my 3D models was off on smaller
+              screens. After some debugging, I managed to fix the positioning
+              issues and made sure the models looked good on all screen sizes.
+            </p>
+          </li>
+          <li>
+            <h3>April 9th: Adding More Models</h3>
+            <p>
+              Today, I added a few more 3D models to my scene, including an
+              angel, Lacoon, and the Thinker. I spent some time adjusting the
+              positions and scales to make sure everything looked balanced.
+            </p>
+          </li>
+          <li>
+            <h3>April 10th: Styling and Layout Improvements</h3>
+            <p>
+              I spent today working on styling and layout improvements. I added
+              some hover effects and transitions to make the website more
+              interactive and engaging. I also worked on optimizing the code for
+              better performance.
+            </p>
+          </li>
+          <li>
+            <h3>April 11th: Cleaning Up the Code</h3>
+            <p>
+              I spent today cleaning up the code and organizing everything for
+              better maintainability. I consolidated the font declarations and
+              organized the CSS rules to make the code more organized and easier
+              to understand.
+            </p>
+          </li>
+          <li>
+            <h3>April 12th: Refactoring JavaScript Code</h3>
+            <p>
+              I decided to refactor the JavaScript code to make it more
+              organized and modular. I added comments and organized the code
+              into separate functions to make it easier to manage.
+            </p>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+  <canvas id="blog-canvas"></canvas>
+  <script type="importmap">
+    {
+      "imports": {
+        "three" : "https://unpkg.com/three@0.163.0/build/three.module.js"
+      }
+    }
+  </script>
+  <script type="module" src="../assets/js/three.js"></script>
+</html>
