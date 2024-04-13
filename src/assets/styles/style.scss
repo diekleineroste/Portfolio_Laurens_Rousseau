@@ -60,6 +60,23 @@ body {
   overflow-x: hidden;
 
   header {
+    .skip-to-content-link {
+      position: absolute;
+      left: 45%;
+      right: 45%;
+      width: 10%;
+      padding: 8px;
+      border: 1px solid var(--white);
+      border-radius: 0;
+      transform: translateY(-150%);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+
+    .skip-to-content-link:focus {
+      transform: translateY(200%);
+    }
+
     .quote {
       position: absolute;
       top: 0;
@@ -119,6 +136,31 @@ body {
 
           a {
             text-decoration: none;
+
+            &::before {
+              content: "my ";
+            }
+          }
+
+          a:hover {
+            &::before {
+              color: var(--pink);
+            }
+          }
+
+          .active {
+            position: relative;
+            &::after {
+              content: "";
+              visibility: visible;
+              position: absolute;
+              display: block;
+              top: 48%;
+              width: 110%;
+              height: 2px;
+              transform: translateX(-5%);
+              background-color: var(--pink);
+            }
           }
         }
       }
@@ -221,7 +263,7 @@ canvas {
         left: 2rem;
         bottom: 10em;
 
-        h3 {
+        h2 {
           margin: 0;
           font-size: 2em;
           font-weight: 500;
@@ -325,29 +367,14 @@ canvas {
             font-size: 3em;
           }
 
-          li:nth-child(1) {
-            margin-left: 2.5em;
-            margin-right: auto;
-          }
-
-          li:nth-child(2) {
-            margin-left: auto;
-            margin-right: 2em;
-          }
-
-          li:nth-child(3) {
-            margin-left: 1em;
-            margin-right: auto;
-          }
-
-          li:nth-child(4) {
-            margin-left: auto;
-            margin-right: 1em;
-          }
-
-          li:nth-child(5) {
+          li:nth-child(2n + 1) {
             margin-left: 0;
             margin-right: auto;
+          }
+
+          li:nth-child(2n) {
+            margin-left: auto;
+            margin-right: 0;
           }
         }
       }
@@ -376,7 +403,7 @@ canvas {
         h2 {
           width: 60%;
         }
-        
+
         ul {
           width: 60%;
         }

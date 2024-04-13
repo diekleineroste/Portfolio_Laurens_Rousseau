@@ -1,74 +1,118 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&nbsp;Portfolio Rousseau</title>
+    <link rel="stylesheet" href="./assets/styles/style.scss" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&nbsp;Portfolio Rousseau</title>
-  <link rel="stylesheet" href="./assets/styles/style.scss">
-</head>
-
-<body>
-  <header>
-    <div class="quote">
-      <p>the website should not only showcase</p>
-      <p>the designers work but also reflect</p>
-      <p>their unique style and personality</p>
-    </div>
-    <div class="info-small">
-      <h3>laurens</h3>
-      <h3>rousseau</h3>
-      <h3>frontend</h3>
-      <h3>developer</h3>
-      <h3>design</h3>
-    </div>
-    <nav>
-      <div>
-        <a href="#"><h1 class="logo" aria-label="logos"><span>ROUSSEAU</span></h1></a>
+  <body>
+    <header>
+      <a class="skip-to-content-link" href="#intro">Skip to intro</a>
+      <div class="quote">
+        <p>the website should not only showcase</p>
+        <p>the designers work but also reflect</p>
+        <p>their unique style and personality</p>
       </div>
-      <ul>
-        <li>
-          <a href="#intro">intro</a>
-        </li>
-        <li>
-          <a href="#projects">projects</a>
-        </li>
-        <li>
-          <a href="./blog/">blog</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="intro" id="intro">
-      <div class="about">
-        <h2>intro</h2>
-        <p>Hello, I'm <span>Laurens</span>, a creative web developer and designer based in Belgium. Currently studying Web & Mobile development at <a href="http://www.odisee.be/en" target="_blank" rel="noopener noreferrer">Odisee</a> University of Applied Sciences in Ghent. My journey in the world of coding and design began with my love for drawing and creating art. Coding made me realize that there is a whole different realm of art called websites. Now, I'm dedicated to crafting art where the browser becomes my canvas, and coding serves as my paint and brush. </p>
+      <nav aria-label="Main Navigation">
+        <div>
+          <a href="#"
+            ><h1 class="logo" aria-label="logos"><span>ROUSSEAU</span></h1></a
+          >
+        </div>
+        <ul>
+          <li>
+            <a href="#" class="active">home</a>
+          </li>
+          <li>
+            <a href="#intro">intro</a>
+          </li>
+          <li>
+            <a href="#projects">work</a>
+          </li>
+          <li>
+            <a href="./blog/">blog</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="info-small">
+        <h2>laurens</h2>
+        <h2>rousseau</h2>
+        <h2>frontend</h2>
+        <h2>developer</h2>
+        <h2>design</h2>
       </div>
-      <div class="contact">
-        <h3>contact</h3>
-        <p>Send me an <a href="mailto:laurensrousseau04@gmail.com">email</a>, I will get in touch as soon as i have my coffee.</p>
-      </div>
-    </section>
-    <section class="projects" id="projects">
-      <h2>projects</h2>
-      <ul>
-        <li><a href="">ArtistIQ</a></li>
-        <li><a href="https://artlab.laurensrousseau.ikdoeict.be/">ArtLab.</a></li>
-        <!-- <li><a href="">FestWest</a></li> -->
-        <li><a href="http://judoclubbanzai.be/">Banzai</a></li>
-        <li><a href="#">Portfolio</a></li>
-      </ul>
-    </section>
-  </main>
-</body>
-<canvas id="canvas"></canvas>
-<script type="importmap">
-  {
-    "imports": {
-      "three" : "https://unpkg.com/three@0.163.0/build/three.module.js"
+    </header>
+    <main>
+      <section class="intro" id="intro">
+        <div class="about">
+          <h2>intro</h2>
+          <p>
+            Hello, I'm <span>Laurens</span>, a creative web developer and
+            designer based in Belgium. Currently studying Web & Mobile
+            development at
+            <a
+              href="http://www.odisee.be/en"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Odisee</a
+            >
+            University of Applied Sciences in Ghent. My journey in the world of
+            coding and design began with my love for drawing and creating art.
+            Coding made me realize that there is a whole different realm of art
+            called websites. Now, I'm dedicated to crafting art where the
+            browser becomes my canvas, and coding serves as my paint and brush.
+          </p>
+        </div>
+        <div class="contact">
+          <h3>contact</h3>
+          <p>
+            Send me an
+            <a
+              href="mailto:laurensrousseau04@gmail.com"
+              >email</a
+            >, I will get in touch as soon as i have my coffee.
+          </p>
+        </div>
+      </section>
+      <section class="projects" id="projects">
+        <h2>projects</h2>
+        <ul>
+          <li>
+            <a
+              href="https://artistiq.laurensrousseau.ikdoeict.be/"
+              title="currently playing spotify track with info"
+              >ArtistIQ</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://artlab.laurensrousseau.ikdoeict.be/"
+              title="buy and sell art from/for students"
+              >ArtLab.</a
+            >
+          </li>
+          <!-- <li><a href="">FestWest</a></li> -->
+          <li>
+            <a
+              href="http://judoclubbanzai.be/"
+              title="all info about judoclub banzai"
+              >Banzai</a
+            >
+          </li>
+          <li><a href="#" title="this portfolio">Portfolio</a></li>
+        </ul>
+      </section>
+    </main>
+  </body>
+  <canvas id="canvas"></canvas>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.163.0/build/three.module.js"
+      }
     }
-  }
-</script>
-<script type="module" src="./assets/js/three.js"></script>
+  </script>
+  <script type="module" src="./assets/js/three.js"></script>
 </html>

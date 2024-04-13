@@ -4,6 +4,7 @@ import { rssPlugin } from "vite-plugin-rss";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  license: "MIT",
   build: {
     outDir: '../dist',
     rollupOptions: {
