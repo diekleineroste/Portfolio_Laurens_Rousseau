@@ -22,12 +22,12 @@ export default defineConfig({
         {
           title: "April 14th: Modifying the RSS Feed with a Plugin",
           link: "https://laurensrousseau.ikdoeict.be/blog/",
-          pubDate: new Date("2024-04-12T00:00:00Z"),
+          pubDate: new Date("2024-04-14T00:00:00Z"),
         },
         {
           title: "April 13th: Introducing GSAP for Animations",
           link: "https://laurensrousseau.ikdoeict.be/blog/",
-          pubDate: new Date("2024-04-12T00:00:00Z"),
+          pubDate: new Date("2024-04-13T00:00:00Z"),
         },
         {
           title: "April 12th: Refactoring JavaScript Code",
