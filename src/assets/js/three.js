@@ -134,6 +134,8 @@ gltfloader.load(urlLacoon.href,
         model.scale.set(-s, s, s)
         model.rotation.x = Math.PI * 0.1
         model.position.set(0, -(document.documentElement.scrollHeight || document.body.scrollHeight) - 100, -250)
+        if (window.innerWidth > 880) model.position.z = -250
+        else model.position.z = -2000
     }
 )
 
@@ -306,18 +308,20 @@ function changeModel() {
     lacoon.scale.set(-slacoon, slacoon, slacoon)
 
     if (window.innerWidth > 880) {
-        if (window.innerWidth > 1280 && blog)michelangelo.position.z = -300
         angel.position.z = -250
+        lacoon.position.z = -250
+        thinker.position.z = -2000
+        if (window.innerWidth > 1280 && blog)michelangelo.position.z = -300
         if (!blog) woman.position.z = -2000
         if (!blog) torus.position.z = -2000
-        thinker.position.z = -2000
     }
     else {
-        if (window.innerWidth < 1280 && blog) michelangelo.position.z = -2000
         woman.position.z = -250
         torus.position.z = -250
         thinker.position.z = -250
         angel.position.z = -2000
+        lacoon.position.z = -2000
+        if (window.innerWidth < 1280 && blog) michelangelo.position.z = -2000
     }
 }
 
