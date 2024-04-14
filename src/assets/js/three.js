@@ -189,8 +189,8 @@ let mouseX = 0
 let mouseY = 0
 
 function mouseAnimation() {
-    const X = (mouseX - (sizes.width / 2)) * .00006
-    const Y = (mouseY - (sizes.height / 2)) * .00006
+    const X = (mouseX - (sizes.width / 2)) * .0001
+    const Y = (mouseY - (sizes.height / 2)) * .0001
 
     const baseX = Y
     const baseY = X
