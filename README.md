@@ -6,10 +6,9 @@ This portfolio showcases my web development skills with:
     - Web Animations
     - Web Accessibility
     - RSS
-    - p5.js
 
-Running Locally:
+Run Locally (in terminal):
 
-    Clone repo: git clone https://github.com/diekleineroste/WebTopics_Laurens_Rousseau.git
-    Install dependencies: npm (or yarn) install
-    Start dev server: npm (or yarn) run dev
+    git clone https://github.com/diekleineroste/WebTopics_Laurens_Rousseau.git
+    npm (or yarn) install
+    npm (or yarn) run dev
