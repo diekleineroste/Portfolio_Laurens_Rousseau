@@ -42,7 +42,7 @@ gltfloader.load(urlMichelangelo.href,
         model.rotation.x = (Math.PI * .4)
 
         const x = (window.innerWidth >= 1600? (1600 / 2) - 300: (window.innerWidth / 2) - 300)
-        model.position.set(0, -innerHeight/9, -350)
+        model.position.set(100, -innerHeight/9, -350)
         if (window.innerWidth <= 880) model.position.z = -2000
         else if(blog) { 
             model.position.y = -(document.documentElement.scrollHeight || document.body.scrollHeight) / 2.5
@@ -296,7 +296,7 @@ function changeModel() {
     else michelangelo.scale.set(-smichelangelo, smichelangelo, smichelangelo)
     const xmichelangelo = (window.innerWidth >= 1600? (1600 / 2) - 300: (window.innerWidth / 2) - 300)
     if (blog) michelangelo.position.set(-xmichelangelo, -(document.documentElement.scrollHeight || document.body.scrollHeight) / 1.75, -2000)
-    else michelangelo.position.set(0, -innerHeight/9, -2000)
+    else michelangelo.position.set(100, -innerHeight/9, -2000)
 
     const storus = window.innerHeight / 880
     torus.scale.set(storus, storus, storus)
@@ -321,10 +321,11 @@ function changeModel() {
     lacoon.scale.set(-slacoon, slacoon, slacoon)
 
     if (window.innerWidth > 880) {
+        michelangelo.position.z = -300
         angel.position.z = -250
         lacoon.position.z = -250
         thinker.position.z = -2000
-        if (window.innerWidth > 1280 && blog)michelangelo.position.z = -300
+        if (window.innerWidth < 1280 && blog) michelangelo.position.z = -2000
         if (!blog) woman.position.z = -2000
         if (!blog) torus.position.z = -2000
     }
