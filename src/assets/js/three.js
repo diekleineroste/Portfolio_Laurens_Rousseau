@@ -39,13 +39,13 @@ gltfloader.load(urlMichelangelo.href,
         const s = window.innerHeight / .85
         if (blog) model.scale.set(s, s, s)
         else model.scale.set(-s, s, s)
-        model.rotation.x = (Math.PI * .45)
+        model.rotation.x = (Math.PI * .4)
 
         const x = (window.innerWidth >= 1600? (1600 / 2) - 300: (window.innerWidth / 2) - 300)
-        model.position.set(x, -innerHeight/9, -350)
+        model.position.set(0, -innerHeight/9, -350)
         if (window.innerWidth <= 880) model.position.z = -2000
         else if(blog) { 
-            model.position.y = -(document.documentElement.scrollHeight || document.body.scrollHeight) / 1.75
+            model.position.y = -(document.documentElement.scrollHeight || document.body.scrollHeight) / 2.5
             model.position.x = -x
         }
         else model.position.z = -350
@@ -134,7 +134,7 @@ gltfloader.load(urlLacoon.href,
         model.scale.set(-s, s, s)
         model.rotation.x = Math.PI * 0.1
         model.position.set(0, -(document.documentElement.scrollHeight || document.body.scrollHeight) - 100, -250)
-        if (window.innerWidth > 880) model.position.z = -250
+        if (window.innerWidth > 880 || blog) model.position.z = -250
         else model.position.z = -2000
     }
 )
@@ -194,8 +194,8 @@ function mouseAnimation() {
 
     const baseX = Y
     const baseY = X
-    const mY = X + (Math.PI * 1.45)
-    const bmY = X + (Math.PI * .45)
+    const mY = X + (Math.PI * 1.6)
+    const bmY = X + (Math.PI * .4)
     const aX = Y + (Math.PI * 0.12)
 
     if (michelangelo) {
@@ -234,11 +234,24 @@ function scalePercent(start, end) { return (scrollPercent - start) / (end - star
 
 scrollAnimations.push({
     start: 0,
-    end: 101,
+    end: 100,
     func: () => {
-        camera.position.y = -lerp(0, (document.documentElement.scrollHeight || document.body.scrollHeight), scalePercent(0, 101))
+        camera.position.y = -lerp(0, (document.documentElement.scrollHeight || document.body.scrollHeight), scalePercent(0, 100))
     },
 })
+
+const scroll = ((((document.documentElement.scrollHeight || document.body.scrollHeight) / 2.655)) / ((document.documentElement.scrollHeight || document.body.scrollHeight)))
+
+scrollAnimations.push({
+    start: scroll * 100,
+    end: 100 - (scroll * 75),
+    func: () => {
+        if (blog && window.innerWidth > 1280 && michelangelo) {
+            michelangelo.position.y = camera.position.y - (window.innerHeight / 9)
+        }
+    },
+})
+
 
 function playScrollAnimations() {
     scrollAnimations.forEach((animation) => {
@@ -273,7 +286,7 @@ window.addEventListener('resize', () => {
 
 function changeModel() {
     scene.remove(grid)
-    grid = new THREE.GridHelper(window.innerHeight * 20, 130, 0xff8ff8, 0x444444)
+    grid = new THREE.GridHelper(window.innerHeight * 20, 130, 0xB264AD, 0x444444)
     grid.rotation.x = Math.PI * 0.5
     grid.position.set(-window.innerWidth / 9, -window.innerHeight / 3, -750)
     scene.add(grid)
@@ -283,7 +296,7 @@ function changeModel() {
     else michelangelo.scale.set(-smichelangelo, smichelangelo, smichelangelo)
     const xmichelangelo = (window.innerWidth >= 1600? (1600 / 2) - 300: (window.innerWidth / 2) - 300)
     if (blog) michelangelo.position.set(-xmichelangelo, -(document.documentElement.scrollHeight || document.body.scrollHeight) / 1.75, -2000)
-    else michelangelo.position.set(xmichelangelo, -innerHeight/9, -2000)
+    else michelangelo.position.set(0, -innerHeight/9, -2000)
 
     const storus = window.innerHeight / 880
     torus.scale.set(storus, storus, storus)
@@ -320,7 +333,7 @@ function changeModel() {
         torus.position.z = -250
         thinker.position.z = -250
         angel.position.z = -2000
-        lacoon.position.z = -2000
+        if (!blog) lacoon.position.z = -2000
         if (window.innerWidth < 1280 && blog) michelangelo.position.z = -2000
     }
 }

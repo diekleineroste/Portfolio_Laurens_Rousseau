@@ -29,14 +29,17 @@
           >
         </div>
         <ul>
-          <li>
+          <li id="first">
             <a href="../">home</a>
+            <div class="overlay" id="first-overlay"></div>
           </li>
-          <li>
+          <li id="second">
             <a href="../feed.xml">rss</a>
+            <div class="overlay" id="second-overlay"></div>
           </li>
-          <li>
+          <li id="third">
             <a href="#blog" class="active">blog</a>
+            <div class="overlay" id="third-overlay"></div>
           </li>
         </ul>
       </nav>
@@ -149,4 +152,5 @@
     }
   </script>
   <script type="module" src="../assets/js/three.js"></script>
+  <script type="module" src="../assets/js/gsap.js"></script>
 </html>
