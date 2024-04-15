@@ -6,7 +6,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   license: "MIT",
   build: {
-    outDir: '../dist',
+    outDir: "../dist",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "src/index.html"),
@@ -14,11 +14,16 @@ export default defineConfig({
       },
     },
   },
-  root: 'src',
+  root: "src",
   plugins: [
     rssPlugin({
       mode: "define",
       items: [
+        {
+          title: "April 15th: Enhancing User Engagement with Interactive Overlays",
+          link: "https://laurensrousseau.ikdoeict.be/blog/",
+          pubDate: new Date("2024-04-15T00:00:00Z"),
+        },
         {
           title: "April 14th: Modifying the RSS Feed with a Plugin",
           link: "https://laurensrousseau.ikdoeict.be/blog/",
