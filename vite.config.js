@@ -20,6 +20,11 @@ export default defineConfig({
       mode: "define",
       items: [
         {
+          title: "April 19th: A poem for Bart",
+          link: "https://laurensrousseau.ikdoeict.be/blog/",
+          pubDate: new Date("2024-04-19T00:00:00Z"),
+        },
+        {
           title: "April 15th: Enhancing User Engagement with Interactive Overlays",
           link: "https://laurensrousseau.ikdoeict.be/blog/",
           pubDate: new Date("2024-04-15T00:00:00Z"),
