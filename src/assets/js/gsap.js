@@ -9,7 +9,7 @@ skills.forEach(function (e) {
     skillsWidth += e.children[i].getBoundingClientRect().width
   }
 
-  const start = ((skillsWidth * 0.505) / skillsWidth) * 100 * -1
+  const start = 0
   gsap.set(e, {
     xPercent: `${start}`,
   })
@@ -18,7 +18,7 @@ skills.forEach(function (e) {
   tl.to(e, {
     ease: "none",
     duration: skillsWidth / 100,
-    xPercent: 0,
+    xPercent: ((skillsWidth * 0.505) / skillsWidth) * 100 * -1,
     repeat: -1,
   })
 })

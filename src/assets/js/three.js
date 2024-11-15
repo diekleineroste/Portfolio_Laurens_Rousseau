@@ -26,10 +26,25 @@ scene.add(grid)
 grid.rotation.x = Math.PI * 0.5
 grid.position.set(-window.innerWidth / 9, -window.innerHeight / 3, -750)
 
+//loading indicator
+
+const loadingManager = new THREE.LoadingManager()
+const progressBar = document.querySelector("#progress-bar")
+
+loadingManager.onProgress = function (url, loaded, total) {
+    progressBar.value = (loaded / total) * 100
+}
+
+const progressBarContainer = document.querySelector(".loading")
+
+loadingManager.onLoad = function () {
+    progressBarContainer.style.display = 'none'
+}
+
 //model
 
 let michelangelo
-const gltfloader = new GLTFLoader()
+const gltfloader = new GLTFLoader(loadingManager)
 gltfloader.load(urlMichelangelo.href,
     function (object) {
         const model = object.scene
@@ -168,10 +183,11 @@ if (blog) {
 else {
     canvas = document.querySelector("#canvas")
 }
-const renderer = new THREE.WebGLRenderer({ canvas })
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true })
 renderer.setSize(sizes.width, sizes.height)
 renderer.render(scene, camera)
-renderer.setClearColor(0x1c1c1c)
+// renderer.setClearColor(0x1c1c1c)
+renderer.setClearColor( 0x000000, 0 );
 
 function animate() {
     requestAnimationFrame(animate)
@@ -285,58 +301,66 @@ window.addEventListener('resize', () => {
 }, false)
 
 function changeModel() {
-    scene.remove(grid)
-    grid = new THREE.GridHelper(window.innerHeight * 20, 130, 0xB264AD, 0x444444)
-    grid.rotation.x = Math.PI * 0.5
-    grid.position.set(-window.innerWidth / 9, -window.innerHeight / 3, -750)
-    scene.add(grid)
+    scene.remove(grid);
 
-    const smichelangelo = window.innerHeight / .85
-    if (blog) michelangelo.scale.set(smichelangelo, smichelangelo, smichelangelo)
-    else michelangelo.scale.set(-smichelangelo, smichelangelo, smichelangelo)
-    const xmichelangelo = (window.innerWidth >= 1600? (1600 / 2) - 300: (window.innerWidth / 2) - 300)
-    if (blog) michelangelo.position.set(-xmichelangelo, -(document.documentElement.scrollHeight || document.body.scrollHeight) / 1.75, -2000)
-    else michelangelo.position.set(100, -innerHeight/9, -2000)
+  // Grid setup
+  const gridSize = window.innerHeight * 20;
+  const gridSpacing = 130;
+  const gridColor1 = 0xB264AD;
+  const gridColor2 = 0x444444;
+  const grid = new THREE.GridHelper(gridSize, gridSpacing, gridColor1, gridColor2);
+  grid.rotation.x = Math.PI * 0.5;
+  grid.position.set(-window.innerWidth / 9, -window.innerHeight / 3, -750);
+  scene.add(grid);
 
-    const storus = window.innerHeight / 880
-    torus.scale.set(storus, storus, storus)
-    torus.position.set(0, window.innerHeight / 2.7, -250)
+  // Object scaling and positioning
+  const scaleFactor = window.innerHeight / 0.85;
+  const xOffset = window.innerWidth >= 1600 ? 1600 / 2 - 300 : window.innerWidth / 2 - 300;
+  const yOffset = (document.documentElement.scrollHeight || document.body.scrollHeight) / 1.75;
 
-    const swoman = window.innerHeight / 2.3
-    woman.scale.set(swoman, swoman, swoman)
-    woman.position.set(0, -window.innerHeight / 13, -250)
+  // Michelangelo
+  michelangelo.scale.set(blog ? scaleFactor : -scaleFactor, scaleFactor, scaleFactor);
+  michelangelo.position.set(blog ? -xOffset : 100, blog ? -yOffset : -window.innerHeight / 9, -2000);
 
-    const sangel = window.innerHeight / 42
-    angel.scale.set(sangel, sangel, sangel)
-    const xangel = (window.innerWidth >= 1600? -1600 / 4: -window.innerWidth / 4)
-    angel.position.set(xangel, -(document.documentElement.scrollHeight || document.body.scrollHeight) / 2, -250)
+  // Torus
+  torus.scale.set(window.innerHeight / 880, window.innerHeight / 880, window.innerHeight / 880);
+  torus.position.set(0, window.innerHeight / 2.7, -250);
 
-    const sthinker = window.innerHeight / 3.4
-    thinker.scale.set(sthinker, sthinker, sthinker)
-    const xthinker = (window.innerWidth >= 1600? -1600 / 3: -window.innerWidth / 3)
-    thinker.position.set(xthinker, -(document.documentElement.scrollHeight || document.body.scrollHeight) / 1.55, -250)
+  // Woman
+  woman.scale.set(window.innerHeight / 2.3, window.innerHeight / 2.3, window.innerHeight / 2.3);
+  woman.position.set(0, -window.innerHeight / 13, -250);
 
-    const slacoon = window.innerHeight / 37
-    lacoon.position.set(0, -(document.documentElement.scrollHeight || document.body.scrollHeight) - 100, -250)
-    lacoon.scale.set(-slacoon, slacoon, slacoon)
+  // Angel
+  angel.scale.set(window.innerHeight / 42, window.innerHeight / 42, window.innerHeight / 42);
+  const angelXOffset = window.innerWidth >= 1600 ? -1600 / 4 : -window.innerWidth / 4;
+  angel.position.set(angelXOffset, -yOffset / 2, -250);
 
-    if (window.innerWidth > 880) {
-        michelangelo.position.z = -300
-        angel.position.z = -250
-        lacoon.position.z = -250
-        thinker.position.z = -2000
-        if (window.innerWidth < 1280 && blog) michelangelo.position.z = -2000
-        if (!blog) woman.position.z = -2000
-        if (!blog) torus.position.z = -2000
-    }
-    else {
-        woman.position.z = -250
-        torus.position.z = -250
-        thinker.position.z = -250
-        angel.position.z = -2000
-        if (!blog) lacoon.position.z = -2000
-        if (window.innerWidth < 1280 && blog) michelangelo.position.z = -2000
-    }
+  // Thinker
+  thinker.scale.set(window.innerHeight / 3.4, window.innerHeight / 3.4, window.innerHeight / 3.4);
+  const thinkerXOffset = window.innerWidth >= 1600 ? -1600 / 3 : -window.innerWidth / 3;
+  thinker.position.set(thinkerXOffset, -yOffset / 1.55, -250);
+
+  // Laocoon
+  lacoon.scale.set(-window.innerHeight / 37, window.innerHeight / 37, window.innerHeight / 37);
+  lacoon.position.set(0, -yOffset - 100, -250);
+
+  // Adjust positions based on screen size
+  if (window.innerWidth > 880) {
+    michelangelo.position.z = -300;
+    angel.position.z = -250;
+    lacoon.position.z = -250;
+    thinker.position.z = -2000;
+    if (window.innerWidth < 1280 && blog) michelangelo.position.z = -2000;
+    if (!blog) woman.position.z = -2000;
+    if (!blog) torus.position.z = -2000;
+  } else {
+    woman.position.z = -250;
+    torus.position.z = -250;
+    thinker.position.z = -250;
+    angel.position.z = -2000;
+    if (!blog) lacoon.position.z = -2000;
+    if (window.innerWidth < 1280 && blog) michelangelo.position.z = -2000;
+  }
 }
 
 window.scrollTo({ top: 0, behavior: 'smooth' })
