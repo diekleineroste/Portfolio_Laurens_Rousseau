@@ -58,6 +58,8 @@ body {
   }
 
   header {
+    position: relative;
+
     .skip-to-content-link {
       position: absolute;
       left: 45%;
@@ -206,6 +208,10 @@ body {
           }
         }
       }
+    }
+
+    .glcanvas {
+      display: none;
     }
   }
 
@@ -396,6 +402,17 @@ body {
             }
           }
         }
+      }
+
+      .glcanvas {
+        display: block;
+        position: absolute;
+        width: 100dvw;
+        height: 100dvh;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
       }
     }
 

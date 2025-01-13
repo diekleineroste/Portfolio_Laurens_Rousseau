@@ -63,7 +63,7 @@ gltfloader.load(urlMichelangelo.href,
             model.position.y = -(document.documentElement.scrollHeight || document.body.scrollHeight) / 2.5
             model.position.x = -x
         }
-        else model.position.z = -350
+        else model.position.z = -2000
     }
 )
 
@@ -346,7 +346,7 @@ function changeModel() {
 
   // Adjust positions based on screen size
   if (window.innerWidth > 880) {
-    michelangelo.position.z = -300;
+    michelangelo.position.z = -2000;
     angel.position.z = -250;
     lacoon.position.z = -250;
     thinker.position.z = -2000;

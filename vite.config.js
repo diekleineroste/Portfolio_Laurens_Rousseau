@@ -13,6 +13,7 @@ export default defineConfig({
         // blog: resolve(__dirname, "src/blog/index.html"),
       },
     },
+    sourcemap: false,
   },
   root: "src",
   // plugins: [

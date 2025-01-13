@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&nbsp;Portfolio Rousseau</title>
+    <title>Laurens Rousseau</title>
     <link rel="stylesheet" href="./assets/styles/style.scss" />
   </head>
 
@@ -44,13 +44,14 @@
           </li> -->
         </ul>
       </nav>
-      <div class="info-small">
+      <!-- <div class="info-small">
         <h2>laurens</h2>
         <h2>rousseau</h2>
         <h2>frontend</h2>
         <h2>developer</h2>
         <h2>design</h2>
-      </div>
+      </div> -->
+      <canvas class="glcanvas" id="glcanvas" width="100vw" height="100vh" tabindex="1"></canvas>
     </header>
     <main>
       <section class="intro" id="intro">
@@ -158,4 +159,44 @@
   </script>
   <script type="module" src="./assets/js/three.js"></script>
   <script type="module" src="./assets/js/gsap.js"></script>
+  <script type="text/javascript" src="./assets/js/patch.js" async></script>
+    
+
+    <script type="text/javascript">
+
+        function showError(initiator,...args)
+        {
+            CABLES.logErrorConsole("[" + initiator + "]", ...args);
+        }
+
+        function patchInitialized(patch)
+        {
+            // You can now access the patch object (patch), register variable watchers and so on
+        }
+
+        function patchFinishedLoading(patch)
+        {
+            // The patch is ready now, all assets have been loaded
+            console.log("patchFinishedLoading")
+        }
+
+        document.addEventListener("CABLES.jsLoaded", function (event)
+        {
+            CABLES.patch = new CABLES.Patch({
+                patch: CABLES.exportedPatch,
+                "prefixAssetPath": "",
+                "assetPath": "assets/",
+                "jsPath": "js/",
+                "glCanvasId": "glcanvas",
+                "glCanvasResizeToWindow": true,
+                "onError": showError,
+                "onPatchLoaded": patchInitialized,
+                "onFinishedLoading": patchFinishedLoading,
+                "canvas": {"alpha":true, "premultipliedAlpha":true } // make canvas transparent
+            });
+        });
+
+        // disable rubberband effect on mobile devices
+        document.getElementById('glcanvas').addEventListener('touchmove', (e)=>{ e.preventDefault(); }, false);
+    </script>
 </html>
